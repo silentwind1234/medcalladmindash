@@ -87,7 +87,7 @@ export class AppModule {
       openIDImplicitFlowConfiguration.redirect_url = environment.APP_BASE_URL + '/starterview/';
       openIDImplicitFlowConfiguration.client_id = 'angular-client';
       openIDImplicitFlowConfiguration.response_type = 'id_token token';
-      openIDImplicitFlowConfiguration.scope = 'openid profile email medcall';
+      openIDImplicitFlowConfiguration.scope = 'openid profile email admin provider patient medcall';
       openIDImplicitFlowConfiguration.post_logout_redirect_uri = environment.APP_BASE_URL + '/Unauthorized/';
       openIDImplicitFlowConfiguration.post_login_route = environment.APP_BASE_URL + '/starterview/';
       openIDImplicitFlowConfiguration.forbidden_route = '/forbidden';
