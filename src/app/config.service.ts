@@ -27,6 +27,7 @@ export class ConfigService {
       }
 
       this.config = await response.json();
+      console.log(this.config);
       await this.loadSSOConfig(this.config.SSOAddress);
     } catch (err) {
       console.error(`ConfigService 'loadConfig' threw an error on calling ${configUrl}`, err);
@@ -37,7 +38,7 @@ export class ConfigService {
   async loadSSOConfig(stsServer: string) {
     try {
       console.log('loadSSOConfig');
-      const response = await fetch(`https://medcallidsrv1234.azurewebsites.net/.well-known/openid-configuration`);
+      const response = await fetch(`${stsServer}/.well-known/openid-configuration`);
 
       if (!response.ok) {
         throw new Error(response.statusText);

@@ -82,6 +82,7 @@ export class AppModule {
     private configService: ConfigService,
     private oidcConfigService: OidcConfigService) {
     this.oidcConfigService.onConfigurationLoaded.subscribe(() => {
+      console.log("config loaded");
       const openIDImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
       openIDImplicitFlowConfiguration.stsServer = environment.STS_BASE_URL;
       openIDImplicitFlowConfiguration.redirect_url = environment.APP_BASE_URL + '/starterview/';
