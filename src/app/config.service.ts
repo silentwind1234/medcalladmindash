@@ -38,7 +38,7 @@ export class ConfigService {
   async loadSSOConfig(stsServer: string) {
     try {
       console.log('loadSSOConfig');
-      const response = await fetch(`${stsServer}/.well-known/openid-configuration`);
+      const response = await fetch(`https://medcallidsrv1234.azurewebsites.net/.well-known/openid-configuration`);
 
       if (!response.ok) {
         throw new Error(response.statusText);

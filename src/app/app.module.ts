@@ -31,7 +31,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AutologinComponent } from './autologin/autologin.component';
 export function loadConfig(oidcConfigService: OidcConfigService) {
   console.log('APP_INITIALIZER STARTING');
-  return () => oidcConfigService.load_using_stsServer(environment.STS_BASE_URL);
+  return () => oidcConfigService.load_using_stsServer('https://medcallidsrv1234.azurewebsites.net');
 }
 
 @NgModule({
@@ -84,7 +84,7 @@ export class AppModule {
     this.oidcConfigService.onConfigurationLoaded.subscribe(() => {
       console.log("config loaded");
       const openIDImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
-      openIDImplicitFlowConfiguration.stsServer = environment.STS_BASE_URL;
+      openIDImplicitFlowConfiguration.stsServer = 'https://medcallidsrv1234.azurewebsites.net';
       openIDImplicitFlowConfiguration.redirect_url = environment.APP_BASE_URL + '/starterview/';
       openIDImplicitFlowConfiguration.client_id = 'angular-client';
       openIDImplicitFlowConfiguration.response_type = 'id_token token';
